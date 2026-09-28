@@ -1,0 +1,13 @@
+TinyUSB
+upstream: https://github.com/hathach/tinyusb
+version:  0.18.0
+commit:   86ad6e56c1700e85f1c5678607a762cfe3aa2f47
+copied:   2026-09-28
+
+Removed after copying, to reduce the tree from 25 MB to 3.6 MB. Repeat these
+deletions when upgrading to a new release.
+
+  examples/  test/  lib/  docs/  tools/  hw/  .github/
+
+hw/ holds board support for the TinyUSB examples. The examples are deleted and
+the board setup for this project is in port/. Only src/ is used.

@@ -1,0 +1,7 @@
+CONFIG_IDF_TARGET="esp32s3"
+
+# The radio is unused. See docs/esp32-s3.md.
+CONFIG_BT_ENABLED=n
+
+# tud_task() runs at 1 ms resolution.
+CONFIG_FREERTOS_HZ=1000
