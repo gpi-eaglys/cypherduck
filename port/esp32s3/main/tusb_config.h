@@ -31,7 +31,7 @@
 #define CFG_TUD_AUDIO           0
 #define CFG_TUD_VIDEO           0
 #define CFG_TUD_DFU             0
-#define CFG_TUD_NET             0
+#define CFG_TUD_ECM_RNDIS       0
 #define CFG_TUD_USBTMC          0
 #define CFG_TUD_VENDOR          1
 

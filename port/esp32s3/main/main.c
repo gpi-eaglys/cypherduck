@@ -4,8 +4,7 @@
  * USB PHY, starts TinyUSB, and creates the task that services the stack.
  * Everything else is in core/.
  *
- * NOT YET VERIFIED. This file has never been compiled. ESP-IDF is required
- * and was not available when it was written. */
+ * Compiled with ESP-IDF v6.1. Not tested on hardware. */
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -44,8 +43,15 @@ static void usb_device_task(void *argument)
 
 void app_main(void)
 {
+    /* Root hub port 0 is the USB OTG controller. It runs as a full-speed
+     * device. */
+    const tusb_rhport_init_t device_init = {
+        .role  = TUSB_ROLE_DEVICE,
+        .speed = TUSB_SPEED_FULL,
+    };
+
     usb_phy_start();
-    tusb_init();
+    tusb_init(0, &device_init);
 
     xTaskCreate(usb_device_task, "usbd", 4096, NULL, 5, NULL);
 }
